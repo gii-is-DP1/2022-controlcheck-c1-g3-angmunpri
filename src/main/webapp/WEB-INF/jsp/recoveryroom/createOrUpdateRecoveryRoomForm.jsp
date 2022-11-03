@@ -4,7 +4,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="petclinic" tagdir="/WEB-INF/tags" %>
 
-<petclinic:layout pageName="owners">
+<petclinic:layout pageName="recoveryroom">
     <jsp:attribute name="customScript">
         <script>
             $(function () {
@@ -29,7 +29,14 @@
             </div>
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
-                    <button class="btn btn-default" type="submit">Update Room</button>
+                	<c:choose>
+                        <c:when test="${recoveryRoom['new']}">
+                    		<button class="btn btn-default" type="submit">Update Room</button>
+                    		</c:when>
+                        <c:otherwise>
+                            <button class="btn btn-default" type="submit">Update Room</button>
+                        </c:otherwise>
+                    </c:choose>
                 </div>
             </div>
         </form:form>
